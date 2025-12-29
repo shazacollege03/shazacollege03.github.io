@@ -1,0 +1,22 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f6f8f3;
+    min-height: 100vh;
+  }
+  
+  /* Hop animation */
+  @keyframes frog-hop {
+    0%, 100% { transform: translate(320px, 320px) scale(8); }
+    50% { transform: translate(320px, 290px) scale(8); }
+  }
+  
+  .frog-hop {
+    animation: frog-hop 1.8s ease-in-out infinite;
+  }
+  
+  html, body, #root {
+    margin: 0;
+    width
