@@ -1,7 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
 .app {
   width: 100vw;
   height: 100vh;
 }
+
+.pixelify-sans-fontt {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.floating-text {
+  position: absolute;
+  top: 200px;       /* adjust relative to envelope */
+  left: 590px;      /* adjust */
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 5rem;
+  color: #000;
+  animation: float-text 3s ease-in-out infinite;
+  animation-delay: 6s; /* matches envelope float start */
+  z-index: 2;
+}
+
+@keyframes float-text {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 
 .scene {
   width: 100%;
@@ -9,9 +43,9 @@
   position: relative;
 }
 
-.scene svg {
-  position: absolute;
-}
+/* .scene svg {
+  position: static;
+} */
 
 .frog {
   position: absolute;
@@ -19,10 +53,6 @@
 
 }
 
-/* 
-.envelopeopen-svg {
-  width: 192px;
-} */
 
 .frog-svg {
   position: absolute;
@@ -33,55 +63,90 @@
 @keyframes frog-hop {
 
   /* approach envelope */
-  0%   { transform: translate(840px, 320px); }
+  0% {
+    transform: translate(840px, 320px);
+  }
 
-  10%  { transform: translate(720px, 290px); }
+  10% {
+    transform: translate(720px, 290px);
+  }
 
-  20%  { transform: translate(620px, 320px); }
+  20% {
+    transform: translate(620px, 320px);
+  }
 
-  30%  { transform: translate(520px, 290px); }
+  30% {
+    transform: translate(520px, 290px);
+  }
 
-  40%  { transform: translate(420px, 320px); }
+  40% {
+    transform: translate(420px, 320px);
+  }
 
-  45%  { transform: translate(320px, 290px); }
+  45% {
+    transform: translate(320px, 290px);
+  }
 
-  50%  { transform: translate(240x, 320px); }
+  50% {
+    transform: translate(240x, 320px);
+  }
 
   /* 55%  { transform: translate(200px, 290px); } */
 
   /* pushing hops — frog stays just ahead */
-  60%  { transform: translate(180px, 320px); }
-
-  65%{
-    transform: translate(160px, 290px); 
+  60% {
+    transform: translate(180px, 320px);
   }
+
+  65% {
+    transform: translate(160px, 290px);
+  }
+
   /* hop toward envelope */
-  70%  { transform: translate(120px, 320px); }
+  70% {
+    transform: translate(120px, 320px);
+  }
 
-  75%  {transform: translate(80px, 290px);  }
+  75% {
+    transform: translate(80px, 290px);
+  }
 
-  78%{
+  78% {
     transform: translate(30px, 320px);
   }
- /* HOP ONTO ENVELOPE */
-  80%{
+
+  /* HOP ONTO ENVELOPE */
+  80% {
     transform: translate(-50px, 225px);
   }
+
   /* brief settle so it reads as "on top" */
-  88%  { transform: translate(-50px, 225px); }
+  88% {
+    transform: translate(-50px, 225px);
+  }
 
   /* HOP OFF ENVELOPE */
-  90%  { transform: translate(-70px, 225px); }
+  90% {
+    transform: translate(-70px, 225px);
+  }
 
-  92%  { transform: translate(-100px, 180px); }
+  92% {
+    transform: translate(-100px, 180px);
+  }
 
   /* ground hop after landing */
-  95%  { transform: translate(-500px, 320px); }
+  95% {
+    transform: translate(-500px, 320px);
+  }
 
   /* continue hopping off screen */
-  98%  { transform: translate(-600px, 290px); }
+  98% {
+    transform: translate(-600px, 290px);
+  }
 
-  100% { transform: translate(-860px, 320px); }
+  100% {
+    transform: translate(-870px, 320px);
+  }
 }
 
 
@@ -98,40 +163,76 @@
   z-index: 3;
 }
 
-@keyframes envelope-push {
-  0%   { transform: translateX(780px); }
-
-  /* frog hop 1 lands */
-  10%  { transform: translateX(720px); }
-
-  /* hop 2 */
-  20%  { transform: translateX(620px); }
-
-  /* hop 3 */
-  30%  { transform: translateX(520px); }
-
-  /* hop 4 */
-  40%  { transform: translateX(420px); }
-
-  /* hop 5 */
-  50%  { transform: translateX(320px); }
-
-  /* pushing slows */
-  60%  { transform: translateX(230px); }
-
-  70%  { transform: translateX(150px); }
-
-  /* friction / settling */
-  80%  { transform: translateX(120px); }
-
-  90%  { transform: translateX(100px); }
-
-  /* final rest position */
-  100% { transform: translateX(50px); }
+.envelope-open {
+  position: absolute;
+  top: 340px;
+  left: 600px;
+  /* slightly in front of frog */
+  z-index: 3;
 }
 
-.envelope-push{
-  animation: envelope-push 6s ease-in-out ;
+.envelopeopen-svg{
+  width: 192px;
+  height: 192px;
+  pointer-events: none;
+}
+
+@keyframes envelope-push {
+  0% {
+    transform: translateX(780px);
+  }
+
+  /* frog hop 1 lands */
+  10% {
+    transform: translateX(720px);
+  }
+
+  /* hop 2 */
+  20% {
+    transform: translateX(620px);
+  }
+
+  /* hop 3 */
+  30% {
+    transform: translateX(520px);
+  }
+
+  /* hop 4 */
+  40% {
+    transform: translateX(420px);
+  }
+
+  /* hop 5 */
+  50% {
+    transform: translateX(320px);
+  }
+
+  /* pushing slows */
+  60% {
+    transform: translateX(230px);
+  }
+
+  70% {
+    transform: translateX(150px);
+  }
+
+  /* friction / settling */
+  80% {
+    transform: translateX(120px);
+  }
+
+  90% {
+    transform: translateX(100px);
+  }
+
+  /* final rest position */
+  100% {
+    transform: translateX(50px);
+  }
+}
+
+.envelope-push {
+  animation: envelope-push 6s ease-in-out;
 }
 
 .envelope-float {
@@ -139,9 +240,35 @@
   animation-delay: 6s;
 }
 
+.envelopeopen-float{
+  animation: envelope-float 3s ease-in-out infinite;
+}
+
+@keyframes envelopeopen-float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 
 @keyframes envelope-float {
-  0%   { transform: translate(50px, 0); }
-  50%  { transform: translate(50px, -10px); }
-  100% { transform: translate(50px, 0); }
+  0% {
+    transform: translate(50px, 0);
+  }
+
+  50% {
+    transform: translate(50px, -10px);
+  }
+
+  100% {
+    transform: translate(50px, 0);
+  }
 }

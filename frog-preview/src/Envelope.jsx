@@ -1,6 +1,7 @@
-export default function Envelope() {
+export default function Envelope({onClick}) {
     return (
-        <div className="envelope envelope-push ">
+        <div className="envelope envelope-push " onClick={onClick} style={{ cursor: "pointer" }}
+        >
             <div className="envelope-float">
                 <svg width="200" height="200" viewBox="0 0 24 24" shapeRendering="crispEdges">
                     <g transform="scale(1)">
