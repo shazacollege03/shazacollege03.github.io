@@ -8,7 +8,7 @@
     "start": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -t -m 'Deploy React app to GitHub Pages'"
   },
   "dependencies": {
     "react": "^19.2.0",
