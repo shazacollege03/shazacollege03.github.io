@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef , useEffect} from "react";
 import leftButton from "/src/assets/left-button.svg";
 import rightButton from "/src/assets/right-button.svg";
 
@@ -11,10 +11,25 @@ const pages = [
 
 export default function LetterViewer() {
     const [page, setPage] = useState(0);
-
+    const scrollRef = useRef(null);
+  
+    // Scroll back to top when page changes
+    useEffect(() => {
+      scrollRef.current?.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    }, [page]);
+  
     return (
-        <div className="letter-viewer">
-            <img src={pages[page]} alt={`Letter page ${page + 1}`} />
+      <div className="letter-viewer">
+        <div className="letter-scroll-area" ref={scrollRef}>
+          <img
+            src={pages[page]}
+            alt={`Letter page ${page + 1}`}
+            draggable={false}
+          />
+        </div>
 
             <div className="letter-controls">
                 <button

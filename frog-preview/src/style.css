@@ -279,7 +279,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   z-index: 10;
 
   opacity: 0;
@@ -294,15 +293,29 @@
   }
 }
 
+.letter-scroll-area {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;      /* adjust to taste */
+  overflow-y: auto;
+  padding: 1rem;
+}
 
-.letter-viewer img {
-  max-width: 80%;
-  max-height: 80%;
+.letter-scroll-area img {
+  width: 100%;
+  height: auto;
   image-rendering: pixelated;
 }
 
+
+/* .letter-viewer img {
+  max-width: 80%;
+  max-height: 80%;
+  image-rendering: pixelated;
+} */
+
 .letter-controls {
-  margin-top: 1rem;
+  margin: 0.75rem 0;
   display: flex;
   gap: 1rem;
 }
@@ -351,45 +364,26 @@
   }
 }
 
-.page-wrapper {
-  perspective: 1200px;
+.letter-image-wrapper {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
 }
 
-.page-wrapper img {
-  transform-origin: left center;
-  animation-duration: 0.6s;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
-  /* box-shadow: 0 10px 30px rgba(0,0,0,0.25); */
+.letter-image-wrapper img {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  pointer-events: none;
 }
 
-/* Next page (flip forward) */
-.page-wrapper.next img {
-  animation-name: flip-next;
-}
-
-/* Previous page (flip backward) */
-.page-wrapper.prev img {
-  transform-origin: right center;
-  animation-name: flip-prev;
-}
-
-
-
-@keyframes flip-next {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(-180deg);
-  }
-}
-
-@keyframes flip-prev {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(180deg);
-  }
+.magnifier-lens {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  background-repeat: no-repeat;
 }
