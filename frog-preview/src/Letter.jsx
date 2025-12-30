@@ -6,10 +6,10 @@ import spotifyButton from "/src/assets/spotify-icon.svg";
 import refreshButton from "/src/assets/refresh-but.svg";
 
 const pages = [
-    "/src/assets/letter/pg1.JPG",
-    "/src/assets/letter/pg2.JPG",
-    "/src/assets/letter/pg3.JPG",
-    "/src/assets/letter/pg4.JPG",
+    "/src/assets/pg1.JPG",
+    "/src/assets/pg2.JPG",
+    "/src/assets/pg3.JPG",
+    "/src/assets/pg4.JPG",
 ];
 
 export default function LetterViewer() {
